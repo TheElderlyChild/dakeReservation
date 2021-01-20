@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448391836803",
+    "project_id": "dake-abe58",
+    "storage_bucket": "dake-abe58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448391836803:android:332da0b14f7ba4191917b6",
+        "android_client_info": {
+          "package_name": "com.elderlyChild.dake"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448391836803-44mi3ch3ceik8hu5o48et5jot2ee6vkk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz1-NPXUf0qMkEVJ61sbP2KexSK33D-Gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448391836803-44mi3ch3ceik8hu5o48et5jot2ee6vkk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
