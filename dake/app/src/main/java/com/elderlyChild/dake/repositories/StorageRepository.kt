@@ -40,9 +40,17 @@ class StorageRepository {
         return result
     }
 
+    fun getMenuItemImg(restaurantID: String, locationStr: String): StorageReference{
+        val storageRef=firebaseStorage.reference
+        var imgRef = storageRef.child(MENU_ITEM_COLLECTION).child(restaurantID).child(locationStr)
+        Log.v(TAG, imgRef.toString())
+        return imgRef
+    }
+
     companion object{
         private const val RESTAURANT_PREVIEW_COLLECTION="restaurant_profile_img"
         private const val RESTAURANT_DETAIL_COLLECTION="restaurant_detail_imgs"
+        private const val MENU_ITEM_COLLECTION="menu_item_imgs"
         private const val TAG = "StorageRepository"
     }
 }

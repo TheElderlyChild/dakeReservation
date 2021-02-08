@@ -1,6 +1,5 @@
 package com.elderlyChild.dake.adapters
 
-import android.location.Location
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,10 +53,10 @@ class RestaurantPreviewAdapter(var dataSet: List<Restaurant>?,
         if(restaurant != null) {
             holder.restaurant = restaurant
             holder.previewName.text = restaurant.name
-            holder.previewRating.text = "$STAR_UNICODE${restaurant.rating.toString()}" +
-                    " (${restaurant.ratingsNo})"
-            holder.previewInfo.text = restaurant.category
-            Glide.with(holder.view).load(StorageRepository().getRestaurantProfileImgRef(restaurant.imageLocation.toString()))
+            holder.previewRating.text = "$STAR_UNICODE${restaurant.avgRating.toString()}" +
+                    " (${restaurant.noRatings})"
+            holder.previewInfo.text = restaurant.cuisine
+            Glide.with(holder.view).load(StorageRepository().getRestaurantProfileImgRef(restaurant.imgLocation.toString()))
                 .into(holder.previewImg)
         }
     }

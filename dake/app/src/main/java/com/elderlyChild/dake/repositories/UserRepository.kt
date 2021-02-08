@@ -15,6 +15,4 @@ class UserRepository{
         }
         return user
     }
-
-
 }

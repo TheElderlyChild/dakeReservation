@@ -10,13 +10,12 @@
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:backgroundTint="@color/light_grey"
-    app:cardCornerRadius="20dp"
+    app:cardCornerRadius="5dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_margin="20dp">
 
 
@@ -29,7 +28,7 @@
             app:layout_constraintHorizontal_bias="0"
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toStartOf="@+id/menuPreviewPrice"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/menuPreviewImg"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -40,7 +39,7 @@
             app:layout_constraintHorizontal_bias="0"
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toStartOf="@+id/menuPreviewPrice"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/menuPreviewImg"
             app:layout_constraintTop_toBottomOf="@+id/menuPreviewName" />
 
         <TextView
@@ -51,6 +50,16 @@
             app:layout_constraintBottom_toBottomOf="@+id/menuPreviewName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/menuPreviewName" />
+
+        <ImageView
+            android:id="@+id/menuPreviewImg"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

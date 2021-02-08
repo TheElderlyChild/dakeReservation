@@ -3,20 +3,17 @@ package com.elderlyChild.dake.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.util.Log
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.elderlyChild.dake.R
 import com.elderlyChild.dake.adapters.RestaurantPreviewAdapter
-import com.elderlyChild.dake.models.Restaurant
 import com.elderlyChild.dake.repositories.RestaurantRepository
 import com.elderlyChild.dake.ui.orders.RestaurantDetailsActivity
 import com.elderlyChild.dake.viewModels.HomePageViewModel
 import androidx.lifecycle.Observer
+import com.elderlyChild.dake.models.Restaurant
 import com.elderlyChild.dake.ui.accounts.AccountActivity
 
 class HomePageActivity : AppCompatActivity() , RestaurantPreviewAdapter.PreviewSelectionListener {
