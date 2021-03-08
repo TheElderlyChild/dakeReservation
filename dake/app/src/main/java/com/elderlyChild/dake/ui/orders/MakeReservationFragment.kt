@@ -81,7 +81,7 @@ class MakeReservationFragment : Fragment(R.layout.fragment_make_reservation) ,
     override fun onSelect(position: Int, time: LocalTime) {
         var order = buildOrder()
         val intent = Intent(this, OrderConfirmationActivity::class.java)
-        intent.put(order)
+        intent.putExtra("order",order)
         startActivity(intent)
     }
 
