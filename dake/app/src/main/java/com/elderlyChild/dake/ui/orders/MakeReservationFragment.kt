@@ -1,5 +1,6 @@
 package com.elderlyChild.dake.ui.orders
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,8 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.elderlyChild.dake.R
 import com.elderlyChild.dake.adapters.TimeSlotChoicesAdapter
+import com.elderlyChild.dake.models.Order
 import com.elderlyChild.dake.models.businessHours.OpeningHours
+import com.elderlyChild.dake.repositories.UserRepository
+import com.elderlyChild.dake.viewModels.AuthViewModel
 import com.elderlyChild.dake.viewModels.RestaurantInfoSharedViewModel
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
 
@@ -27,6 +32,7 @@ class MakeReservationFragment : Fragment(R.layout.fragment_make_reservation) ,
         TimeSlotChoicesAdapter.SelectionListener {
 
     private val viewModel: RestaurantInfoSharedViewModel by activityViewModels()
+    private val authViewModel = AuthViewModel(UserRepository())
     lateinit var btnPartySizeDate : Button
     lateinit var availabilityRecyclerView: RecyclerView
 
@@ -75,12 +81,24 @@ class MakeReservationFragment : Fragment(R.layout.fragment_make_reservation) ,
         })
     }
                 
-    private fun buildOrder() : Order{
-    }           
+    private fun buildOrder() : Order {
+        var restaurant = viewModel.restaurantLiveData.value
+        var partySize=viewModel.selectedPartySizeLiveData.value
+        var date= viewModel.selectedDateLiveData.value
+        var customer=authViewModel.userLiveData.value
+
+        return if (restaurant != null && customer != null) {
+            Order(customer.uid ,restaurant.id, customer.displayName,
+                restaurant.name, Order.STATUS_CREATED, 0.0,Instant.now(),
+                restaurant.currencyCode, null, 0.0, false)
+        } else {
+            Order()
+        }
+    }
 
     override fun onSelect(position: Int, time: LocalTime) {
         var order = buildOrder()
-        val intent = Intent(this, OrderConfirmationActivity::class.java)
+        val intent = Intent(context, OrderConfirmationActivity::class.java)
         intent.putExtra("order",order)
         startActivity(intent)
     }

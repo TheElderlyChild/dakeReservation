@@ -6,7 +6,7 @@ import com.elderlyChild.dake.R
 
 class OrderConfirmationActivity : AppCompatActivity() {
     
-    val order = getIntent().getExtra("order") 
+    val order = intent.getSerializableExtra("order")
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
